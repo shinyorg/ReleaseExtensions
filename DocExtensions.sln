@@ -1,0 +1,50 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio Version 17
+VisualStudioVersion = 17.1.31911.260
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Solution Items", "Solution Items", "{6796E987-C30A-40EC-A03C-16DFB1C40F0A}"
+EndProject
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Shiny.DocFx.Extensions", "src\Shiny.DocFx.Extensions\Shiny.DocFx.Extensions.csproj", "{0717D0A1-D010-419D-8A29-2FFDEAD44084}"
+EndProject
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Shiny.Statiq.Extensions", "src\Shiny.Statiq.Extensions\Shiny.Statiq.Extensions.csproj", "{546EEA57-44A7-47AF-9782-8C778A712914}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "libs", "libs", "{5E4F92A1-746B-46AA-9D57-46FAC5F6A930}"
+	ProjectSection(SolutionItems) = preProject
+		.github\workflows\build.yml = .github\workflows\build.yml
+	EndProjectSection
+EndProject
+Project("{D954291E-2A0B-460D-934E-DC6B0785DB48}") = "Shiny.Documentation.Shared", "src\Shiny.Documentation.Shared\Shiny.Documentation.Shared.shproj", "{85F239B0-9F38-4FAD-A875-1E69C180595C}"
+EndProject
+Global
+	GlobalSection(SharedMSBuildProjectFiles) = preSolution
+		src\Shiny.Documentation.Shared\Shiny.Documentation.Shared.projitems*{0717d0a1-d010-419d-8a29-2ffdead44084}*SharedItemsImports = 5
+		src\Shiny.Documentation.Shared\Shiny.Documentation.Shared.projitems*{546eea57-44a7-47af-9782-8c778a712914}*SharedItemsImports = 5
+		src\Shiny.Documentation.Shared\Shiny.Documentation.Shared.projitems*{85f239b0-9f38-4fad-a875-1e69c180595c}*SharedItemsImports = 13
+	EndGlobalSection
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{0717D0A1-D010-419D-8A29-2FFDEAD44084}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{0717D0A1-D010-419D-8A29-2FFDEAD44084}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{0717D0A1-D010-419D-8A29-2FFDEAD44084}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{0717D0A1-D010-419D-8A29-2FFDEAD44084}.Release|Any CPU.Build.0 = Release|Any CPU
+		{546EEA57-44A7-47AF-9782-8C778A712914}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{546EEA57-44A7-47AF-9782-8C778A712914}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{546EEA57-44A7-47AF-9782-8C778A712914}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{546EEA57-44A7-47AF-9782-8C778A712914}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(NestedProjects) = preSolution
+		{0717D0A1-D010-419D-8A29-2FFDEAD44084} = {5E4F92A1-746B-46AA-9D57-46FAC5F6A930}
+		{546EEA57-44A7-47AF-9782-8C778A712914} = {5E4F92A1-746B-46AA-9D57-46FAC5F6A930}
+		{85F239B0-9F38-4FAD-A875-1E69C180595C} = {5E4F92A1-746B-46AA-9D57-46FAC5F6A930}
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {2A222B0E-3236-4B5F-900D-6147056714D3}
+	EndGlobalSection
+EndGlobal

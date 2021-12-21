@@ -1,0 +1,14 @@
+﻿<Project Sdk="Microsoft.NET.Sdk">
+
+	<PropertyGroup>
+		<TargetFramework>net48</TargetFramework>
+		<Description>DocFX 2.x extensions - nuget shield, </Description>
+	</PropertyGroup>
+
+	<ItemGroup>
+		<PackageReference Include="Microsoft.DocAsCode.Dfm" Version="2.58.9" />
+		<PackageReference Include="System.Composition" Version="6.0.0" />
+	</ItemGroup>
+
+	<Import Project="..\Shiny.Documentation.Shared\Shiny.Documentation.Shared.projitems" Label="Shared" />
+</Project>

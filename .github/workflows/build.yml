@@ -1,0 +1,39 @@
+name: Build
+
+on:
+  workflow_dispatch:
+    inputs:
+      logLevel:
+        description: 'Log level'
+        required: true
+        default: 'warning'
+  push:
+    branches: [ master, main ]
+    paths:
+    - "src/**"
+    - ".github/workflows/**"
+
+env:
+  NugetApiKey: ${{secrets.NUGETAPIKEY}}
+  DotNetVersion: 6.0.100
+  Version: 1.0.0
+
+jobs:
+  build:
+
+    runs-on: ubuntu-latest
+
+    steps:
+    - uses: actions/checkout@v2
+
+    - name: Setup .NET Core
+      uses: actions/setup-dotnet@v1
+      with:
+        dotnet-version: ${{ env.DotNetVersion }}
+
+    - name: Build
+      run: msbuild Build.slnf /restore -m -property:Configuration=Release -property:Version=${{env.Version}}.${{github.build_number}}
+
+    - name: Publish NuGets
+      if: ${{ github.ref == 'refs/heads/master' }}
+      run: dotnet nuget push **\*.nupkg --source https://api.nuget.org/v3/index.json --api-key ${{ secrets.NUGETAPIKEY }} --skip-duplicate
