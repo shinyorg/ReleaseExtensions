@@ -2,4 +2,4 @@
 
 ### Nuget Shield Test
 
-[NugetShield:Shiny.Push]
+<NugetShield:Shiny.Push>

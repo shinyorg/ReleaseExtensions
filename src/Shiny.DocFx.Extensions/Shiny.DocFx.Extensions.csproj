@@ -1,7 +1,7 @@
 ﻿<Project Sdk="Microsoft.NET.Sdk">
 
 	<PropertyGroup>
-		<TargetFramework>net48</TargetFramework>
+		<TargetFramework>net472</TargetFramework>
 		<Description>DocFX 2.x extensions</Description>
 		<LangVersion>9.0</LangVersion>
 		<Nullable>enable</Nullable>
@@ -10,8 +10,9 @@
 
 	<ItemGroup>
 		<PackageReference Include="Microsoft.DocAsCode.Dfm" Version="$(DfmVersion)" />
-		<PackageReference Include="Microsoft.DocAsCode.Plugins" Version="$(DfmVersion)" />
-		<PackageReference Include="Microsoft.DocAsCode.Common" Version="$(DfmVersion)" />
+		<PackageReference Include="Microsoft.Composition" Version="1.0.31" />
+		<!--<PackageReference Include="Microsoft.DocAsCode.Plugins" Version="$(DfmVersion)" />
+		<PackageReference Include="Microsoft.DocAsCode.Common" Version="$(DfmVersion)" />-->
 	</ItemGroup>
 
 	<ItemGroup>

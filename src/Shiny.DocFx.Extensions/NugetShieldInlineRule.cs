@@ -7,11 +7,12 @@ namespace Shiny.DocFx.Extensions
     public class NugetShieldInlineRule : IMarkdownRule
     {
         static readonly Regex regex = new Regex(@"^\[NugetShield:(\w+?)\]", RegexOptions.Compiled);
+        //static readonly Regex regex = new Regex(@"^\<NugetShield:(\w+?)\>", RegexOptions.Compiled);
 
 
         public string Name => "NugetShieldToken";
 
-        public IMarkdownToken TryMatch(IMarkdownParser parser, IMarkdownParsingContext context)
+        public IMarkdownToken? TryMatch(IMarkdownParser parser, IMarkdownParsingContext context)
         {
             var match = regex.Match(context.CurrentMarkdown);
             if (match.Length == 0)
