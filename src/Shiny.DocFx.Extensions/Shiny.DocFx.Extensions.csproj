@@ -5,18 +5,16 @@
 		<Description>DocFX 2.x extensions</Description>
 		<LangVersion>9.0</LangVersion>
 		<Nullable>enable</Nullable>
-		<DfmVersion>2.58.9</DfmVersion>
 	</PropertyGroup>
 
+	<PropertyGroup Condition="'$(Configuration)' == 'Debug'">
+		<OutputPath>../../samples/docfx/apidocs/shinytemplate/plugins/</OutputPath>
+	</PropertyGroup>
+	
 	<ItemGroup>
-		<PackageReference Include="Microsoft.DocAsCode.Dfm" Version="$(DfmVersion)" />
+		<PackageReference Include="Microsoft.DocAsCode.Dfm" Version="2.58.9" />
 		<PackageReference Include="Microsoft.Composition" Version="1.0.31" />
-		<!--<PackageReference Include="Microsoft.DocAsCode.Plugins" Version="$(DfmVersion)" />
-		<PackageReference Include="Microsoft.DocAsCode.Common" Version="$(DfmVersion)" />-->
-	</ItemGroup>
-
-	<ItemGroup>
-	  <Reference Include="System.ComponentModel.Composition" />
+		<Reference Include="System.ComponentModel.Composition" />
 	</ItemGroup>
 
 	<Import Project="..\Shiny.Documentation.Shared\Shiny.Documentation.Shared.projitems" Label="Shared" />
