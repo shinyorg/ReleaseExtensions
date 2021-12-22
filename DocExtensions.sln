@@ -20,6 +20,10 @@ Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "libs", "libs", "{5E4F92A1-7
 EndProject
 Project("{D954291E-2A0B-460D-934E-DC6B0785DB48}") = "Shiny.Documentation.Shared", "src\Shiny.Documentation.Shared\Shiny.Documentation.Shared.shproj", "{85F239B0-9F38-4FAD-A875-1E69C180595C}"
 EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "samples", "samples", "{38332FBF-5DEE-4EF7-BC02-676DE72C79AE}"
+EndProject
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "StatiqTest", "samples\statiq\StatiqTest.csproj", "{91BBDBDC-8DA0-4B61-B583-307ACE6417E6}"
+EndProject
 Global
 	GlobalSection(SharedMSBuildProjectFiles) = preSolution
 		src\Shiny.Documentation.Shared\Shiny.Documentation.Shared.projitems*{0717d0a1-d010-419d-8a29-2ffdead44084}*SharedItemsImports = 5
@@ -39,6 +43,10 @@ Global
 		{546EEA57-44A7-47AF-9782-8C778A712914}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{546EEA57-44A7-47AF-9782-8C778A712914}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{546EEA57-44A7-47AF-9782-8C778A712914}.Release|Any CPU.Build.0 = Release|Any CPU
+		{91BBDBDC-8DA0-4B61-B583-307ACE6417E6}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{91BBDBDC-8DA0-4B61-B583-307ACE6417E6}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{91BBDBDC-8DA0-4B61-B583-307ACE6417E6}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{91BBDBDC-8DA0-4B61-B583-307ACE6417E6}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
@@ -47,6 +55,7 @@ Global
 		{0717D0A1-D010-419D-8A29-2FFDEAD44084} = {5E4F92A1-746B-46AA-9D57-46FAC5F6A930}
 		{546EEA57-44A7-47AF-9782-8C778A712914} = {5E4F92A1-746B-46AA-9D57-46FAC5F6A930}
 		{85F239B0-9F38-4FAD-A875-1E69C180595C} = {5E4F92A1-746B-46AA-9D57-46FAC5F6A930}
+		{91BBDBDC-8DA0-4B61-B583-307ACE6417E6} = {38332FBF-5DEE-4EF7-BC02-676DE72C79AE}
 	EndGlobalSection
 	GlobalSection(ExtensibilityGlobals) = postSolution
 		SolutionGuid = {2A222B0E-3236-4B5F-900D-6147056714D3}
