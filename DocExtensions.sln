@@ -4,6 +4,9 @@ Microsoft Visual Studio Solution File, Format Version 12.00
 VisualStudioVersion = 17.1.31911.260
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Solution Items", "Solution Items", "{6796E987-C30A-40EC-A03C-16DFB1C40F0A}"
+	ProjectSection(SolutionItems) = preProject
+		README.md = README.md
+	EndProjectSection
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Shiny.DocFx.Extensions", "src\Shiny.DocFx.Extensions\Shiny.DocFx.Extensions.csproj", "{0717D0A1-D010-419D-8A29-2FFDEAD44084}"
 EndProject
@@ -12,6 +15,7 @@ EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "libs", "libs", "{5E4F92A1-746B-46AA-9D57-46FAC5F6A930}"
 	ProjectSection(SolutionItems) = preProject
 		.github\workflows\build.yml = .github\workflows\build.yml
+		src\Directory.props.build = src\Directory.props.build
 	EndProjectSection
 EndProject
 Project("{D954291E-2A0B-460D-934E-DC6B0785DB48}") = "Shiny.Documentation.Shared", "src\Shiny.Documentation.Shared\Shiny.Documentation.Shared.shproj", "{85F239B0-9F38-4FAD-A875-1E69C180595C}"
