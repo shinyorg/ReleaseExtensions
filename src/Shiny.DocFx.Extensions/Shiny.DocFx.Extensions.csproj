@@ -2,12 +2,20 @@
 
 	<PropertyGroup>
 		<TargetFramework>net48</TargetFramework>
-		<Description>DocFX 2.x extensions - nuget shield, </Description>
+		<Description>DocFX 2.x extensions</Description>
+		<LangVersion>9.0</LangVersion>
+		<Nullable>enable</Nullable>
+		<DfmVersion>2.58.9</DfmVersion>
 	</PropertyGroup>
 
 	<ItemGroup>
-		<PackageReference Include="Microsoft.DocAsCode.Dfm" Version="2.58.9" />
-		<PackageReference Include="System.Composition" Version="6.0.0" />
+		<PackageReference Include="Microsoft.DocAsCode.Dfm" Version="$(DfmVersion)" />
+		<PackageReference Include="Microsoft.DocAsCode.Plugins" Version="$(DfmVersion)" />
+		<PackageReference Include="Microsoft.DocAsCode.Common" Version="$(DfmVersion)" />
+	</ItemGroup>
+
+	<ItemGroup>
+	  <Reference Include="System.ComponentModel.Composition" />
 	</ItemGroup>
 
 	<Import Project="..\Shiny.Documentation.Shared\Shiny.Documentation.Shared.projitems" Label="Shared" />

@@ -6,7 +6,7 @@ namespace Shiny.DocFx.Extensions
 {
     public class NugetShieldInlineRule : IMarkdownRule
     {
-        static readonly Regex regex = new Regex(@"^\[EnvVar:(\w+?)\]", RegexOptions.Compiled);
+        static readonly Regex regex = new Regex(@"^\[NugetShield:(\w+?)\]", RegexOptions.Compiled);
 
 
         public string Name => "NugetShieldToken";

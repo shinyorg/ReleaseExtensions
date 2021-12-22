@@ -1,6 +1,6 @@
 ﻿using Microsoft.DocAsCode.Dfm;
 using System.Collections.Generic;
-using System.Composition;
+using System.ComponentModel.Composition;
 
 
 namespace Shiny.DocFx.Extensions
