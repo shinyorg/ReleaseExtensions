@@ -8,13 +8,12 @@
 	</PropertyGroup>
 
 	<PropertyGroup Condition="'$(Configuration)' == 'Debug'">
-		<OutputPath>../../samples/docfx/apidocs/shinytemplate/plugins/</OutputPath>
+		<OutputPath>../../samples/docfx/apidoc/shinytemplate/plugins/</OutputPath>
 	</PropertyGroup>
-	
+
 	<ItemGroup>
 		<PackageReference Include="Microsoft.DocAsCode.Dfm" Version="2.58.9" />
 		<PackageReference Include="Microsoft.Composition" Version="1.0.31" />
-		<Reference Include="System.ComponentModel.Composition" />
 	</ItemGroup>
 
 	<Import Project="..\Shiny.Documentation.Shared\Shiny.Documentation.Shared.projitems" Label="Shared" />

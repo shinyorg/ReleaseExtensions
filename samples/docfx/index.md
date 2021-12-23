@@ -2,4 +2,8 @@
 
 ### Nuget Shield Test
 
+```shinystartup
+STARTUP TEST
+```
+
 <NugetShield:Shiny.Push>

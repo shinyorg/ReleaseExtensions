@@ -1,12 +1,25 @@
-﻿using Microsoft.DocAsCode.MarkdownLite;
+﻿using Microsoft.DocAsCode.Dfm;
+using Microsoft.DocAsCode.MarkdownLite;
+
+using System.Collections.Generic;
 using System.Text.RegularExpressions;
 
 
 namespace Shiny.DocFx.Extensions
 {
+    //https://dotnet.github.io/docfx/tutorial/intro_markdown_lite.html
+    //public class MyEngineBuilder : GfmEngineBuilder
+    //{
+    //    public MyEngineBuilder(Options options) : base(options)
+    //    {
+    //        //this.BlockRules = this.BlockRules.Insert(0,mbox, )
+    //    }
+    //}
+
+
     public class NugetShieldInlineRule : IMarkdownRule
     {
-        static readonly Regex regex = new Regex(@"^\[NugetShield:(\w+?)\]", RegexOptions.Compiled);
+        static readonly Regex regex = new Regex(@"^\[!NugetShield:(\w+?)\]", RegexOptions.Compiled);
         //static readonly Regex regex = new Regex(@"^\<NugetShield:(\w+?)\>", RegexOptions.Compiled);
 
 

@@ -53,7 +53,7 @@
     "fileMetadataFiles": [],
     "template": [
       "default",
-      "simple_template"
+      "shinytemplate"
     ],
     "postProcessors": [],
     "markdownEngineName": "markdig",
