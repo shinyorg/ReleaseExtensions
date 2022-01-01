@@ -11,10 +11,7 @@ namespace MySite
             await Bootstrapper
                 .Factory
                 .CreateWeb(args)
-                .AddShortcode<StartupShortcode>("Startup")
-                //.AddShortcode<PackageInfoShortcode>("PackageInfo")
-                .AddShortcode<NugetShieldShortcode>("NugetShield")
-                //.AddShortcode<StaticClassesShortcode>("StaticClasses")
+                .AddShinyExtensions()
                 .RunAsync();
     }
 }

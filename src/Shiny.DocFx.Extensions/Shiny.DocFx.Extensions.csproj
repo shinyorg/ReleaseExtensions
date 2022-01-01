@@ -2,13 +2,13 @@
 
 	<PropertyGroup>
 		<TargetFramework>net472</TargetFramework>
-		<Description>DocFX 2.x extensions</Description>
+		<Description>Some extensions for DocFX 2.x specifically for Shiny documentation</Description>
 		<LangVersion>9.0</LangVersion>
 		<Nullable>enable</Nullable>
 	</PropertyGroup>
 
 	<PropertyGroup Condition="'$(Configuration)' == 'Debug'">
-		<OutputPath>../../samples/docfx/apidoc/shinytemplate/plugins/</OutputPath>
+		<OutputPath>../../samples/docfx/shinytemplate/plugins/</OutputPath>
 	</PropertyGroup>
 
 	<ItemGroup>
