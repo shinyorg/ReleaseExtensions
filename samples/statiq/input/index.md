@@ -6,9 +6,9 @@ Hello from my first Statiq page.
 
 ### Startup Test
 
-<?# Startup ?>
+<?! Startup ?>
 THIS IS A TEST
-<?#/ Startup ?>
+<?!/ Startup ?>
 
 
 ### Nuget Shield

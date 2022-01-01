@@ -2,3 +2,6 @@
 # choco install docfx -y
 # docfx samples\docfx\docfx.json -t shinytemplate --serve
 docfx samples\docfx\docfx.json --serve
+
+#dotnet run --preview
+# http://localhost:5080

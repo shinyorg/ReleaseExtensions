@@ -4,22 +4,20 @@
         <Owners>aritchie;shinylib</Owners>
         <LangVersion>9.0</LangVersion>
         <Nullable>enable</Nullable>
-        <DisableExtraReferences>False</DisableExtraReferences>
         <NoWarn>$(NoWarn);1591;1701;1591;1702;1705;VSX1000;NU1603</NoWarn>
-        <Description>Shiny</Description>
+        <PackageVersion>1.0.0</PackageVersion>
         <PackageLicenseExpression>MIT</PackageLicenseExpression>
         <PackageProjectUrl>https://shinylib.net</PackageProjectUrl>
         <PackageIcon>icon.png</PackageIcon>
-        <PackageReleaseNotes>https://shinyapilib.net/release-notes/</PackageReleaseNotes>
+        <PackageReleaseNotes>https://github.com/shinyorg/releaseextensions</PackageReleaseNotes>
+        <GeneratePackageOnBuild>true</GeneratePackageOnBuild>
     </PropertyGroup>
 
-    <PropertyGroup Condition=" '$(Configuration)' == 'Release' AND '$(OS)' == 'WINDOWS_NT' ">
-        <GeneratePackageOnBuild>true</GeneratePackageOnBuild>
-        <GenerateDocumentationFile>true</GenerateDocumentationFile>
+    <PropertyGroup Condition="'$(GITHUB_ACTIONS)' == 'true'">
+        <ContinuousIntegrationBuild>true</ContinuousIntegrationBuild>
     </PropertyGroup>
 
     <ItemGroup>
         <None Include="$(MSBuildThisFileDirectory)nuget.png" Pack="true" PackagePath="icon.png" />
-        <None Include="$(MSBuildThisFileDirectory)readme.txt" Pack="true" PackagePath="readme.txt" />
     </ItemGroup>
 </Project>

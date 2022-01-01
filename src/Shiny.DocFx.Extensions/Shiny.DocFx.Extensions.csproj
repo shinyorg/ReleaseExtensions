@@ -5,6 +5,7 @@
 		<Description>Some extensions for DocFX 2.x specifically for Shiny documentation</Description>
 		<LangVersion>9.0</LangVersion>
 		<Nullable>enable</Nullable>
+		<GeneratePackageOnBuild>True</GeneratePackageOnBuild>
 	</PropertyGroup>
 
 	<PropertyGroup Condition="'$(Configuration)' == 'Debug'">

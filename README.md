@@ -40,9 +40,9 @@ public static async Task<int> Main(string[] args) =>
 ### USAGE
 
 ```xml
-<?# Startup ?>
+<?! Startup ?>
 THIS IS A TEST
-<?#/ Startup ?>
+<?!/ Startup ?>
 
 <?! NugetShield "Shiny.Push" /?>
 ```
