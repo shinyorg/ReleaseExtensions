@@ -32,7 +32,7 @@ jobs:
         dotnet-version: ${{ env.DotNetVersion }}
 
     - name: Build
-      run: dotnet build /p:Configuration=Release /p:Version=${{env.Version}}.${{github.build_number}}
+      run: dotnet build /p:Configuration=Release /p:Version=${{env.Version}}.${{github.run_number}}
 
     - name: Publish NuGets
       if: ${{ github.ref == 'refs/heads/master' }}

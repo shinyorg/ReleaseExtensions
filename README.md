@@ -14,14 +14,15 @@
 [!NugetShield(Your.Nuget.Package)]
 
 ```markdown
-```shinystartup
+'''shinystartup
 Enter startup code here
-```
+'''
 ```
 
 ## STATIQ
 
 ### SETUP
+
 1. Install Nuget Package Shiny.Statiq.Extensions
 2. Add the following to your statiq bootstrap
 ```csharp
