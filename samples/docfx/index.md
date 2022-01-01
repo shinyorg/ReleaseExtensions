@@ -6,4 +6,4 @@
 STARTUP TEST
 ```
 
-<NugetShield:Shiny.Push>
+[!NugetShield:Shiny]
