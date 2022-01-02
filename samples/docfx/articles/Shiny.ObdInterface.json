@@ -1,0 +1,20 @@
+﻿{
+    "name": "Shiny.ObdInterface",
+    "description": "Read OBD vehicle data (currently only BLE dongles supported)",
+    "sponsors": true,
+    "samples": [
+        {
+            "description": "Sample",
+            "urlPath": "Sponsors-Obd"
+        }
+    ],
+    "services": [
+        {
+            "name": "Shiny.ObdInterface.IObdScanner",
+            "startup": "UseBleObdInterface",
+            "ios": {
+            },
+            "android": {}
+        }
+    ]
+}

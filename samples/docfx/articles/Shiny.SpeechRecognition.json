@@ -1,0 +1,28 @@
+﻿{
+    "name": "Shiny.SpeechRecognition",
+    "samples": [
+        {
+            "description": "Sample",
+            "urlPath": "SpeechRecognition"
+        }
+    ],
+    "services": [
+        {
+            "name": "Shiny.SpeechRecognition.ISpeechRecognizer",
+            "startup": "UseSpeechRecognition",
+            "static": "ShinySpeechRecognition",
+            "ios": {
+                "infoPlistValues": [
+                    "NSSpeechRecognitionUsageDescription",
+                    "NSMicrophoneUsageDescription"
+                ]
+            },
+            "android": {
+                "manifestUsesPermissions": [
+                    "android.permission.RECORD_AUDIO"
+                ]
+            },
+            "uwp": {}
+        }
+    ]
+}

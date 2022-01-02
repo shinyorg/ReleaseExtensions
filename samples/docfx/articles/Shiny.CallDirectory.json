@@ -1,0 +1,20 @@
+﻿{
+    "name": "Shiny.CallDirectory",
+    "description": "Call Directory",
+    "sponsors": true,
+    "samples": [
+        {
+            "description": "Sample",
+            "urlPath": "Sponsors-CallDirectory"
+        }
+    ],
+    "services": [
+        {
+            "name": "Shiny.CallDirectory.ICallDirectoryManager",
+            "startup": "UseCallDirectory",
+            "ios": {
+            },
+            "android": {}
+        }
+    ]
+}
