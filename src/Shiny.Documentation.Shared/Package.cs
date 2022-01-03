@@ -6,59 +6,61 @@ namespace Shiny
 {
     public class Package
     {
-        public string Name { get; set; }
-        public string Description { get; set; }
-        public int Order { get; set; } = 1000;
-        public PackageSample[] Samples { get; set; }
-        public bool Sponsors { get; set; }
-        public PackageService[] Services { get; set; }
-    }
-
-
-    public class PackageSample
-    {
-        public string Description { get; set; }
-        public string UrlPath { get; set; }
-    }
-
-
-    public class PackageService
-    {
-        public string Name { get; set; }
-        public string Description { get; set; }
-        public string Static { get; set; }
+        public string Component { get; set; }
+        public bool SponsorshipRequired { get; set; }
+        public string SaveLocation { get; set; }
+        public string? Description { get; set; }
+        public string? StaticClass { get; set; }
+        public string? Service { get; set; }
         public string? Startup { get; set; }
-        public string? StartupArgs { get; set; }
-
-        public bool AutoRegister { get; set; } = true;
-        public string? BgDelegate { get; set; }
-        public bool BgDelegateRequired { get; set; }
+        public bool CanAutoRegister { get; set; } = true;
+        public string? Delegate { get; set; }
+        public string? Nuget { get; set; }
+        public string[]? Features { get; set; }
+        public string[]? SampleLinks { get; set; }
+        public SampleInclude[]? SampleIncludes { get; set; }
+        public Faq[] Faqs { get; set; }
 
         public AndroidConfig Android { get; set; }
         public iOSConfig iOS { get; set; }
         public UwpConfig Uwp { get; set; }
     }
 
+    public class SampleInclude
+    {
+        public string Title { get; set; }
+        public string Description { get; set; }
+        public string Path { get; set; }
+    }
+
+    public class Faq
+    {
+        public string Question { get; set; }
+        public string Answer { get; set; }
+    }
 
     public class iOSConfig
     {
+        public string Info { get; set; }
         public string MinVersion { get; set; } = "10";
 
-        [JsonProperty("infoPlistValues")]
+        [JsonProperty("infoPlist")]
         public string[]? InfoPlistValues { get; set; }
 
-        [JsonProperty("entitlementPlistValues")]
-        public Dictionary<string, string>? EntitlementPlistValues { get; set; }
+        [JsonProperty("entitlements")]
+        public Dictionary<string, string>? Entitlements { get; set; }
         public string[]? BackgroundModes { get; set; }
         public bool UsesJobs { get; set; } // will show BGTaskSchedulerPermittedIdentifiers in info.plist
         public bool UsesPush { get; set; } // will show entitlements, info.plist uibackgroundmodes, and appdelegate overrides
-        public bool UsesBgTransfers { get; set; } // AppDelegate HandleEventsForBackgroundUrl
+        public bool UsesBackgroundTransfers { get; set; } // AppDelegate HandleEventsForBackgroundUrl
     }
 
 
     public class AndroidConfig
     {
+        public string Info { get; set; }
         public string MinVersion { get; set; } = "8.0";
+        public string TargetVersion { get; set; } = "11";
         public string[] ManifestUsesPermissions { get; set; }
         public string[] ManifestUsesFeatures { get; set; }
     }
@@ -66,6 +68,7 @@ namespace Shiny
 
     public class UwpConfig
     {
+        public string Info { get; set; }
         public string MinVersion = "17763";
         public string[] Capabilities { get; set; }
         public string[] DeviceCapabilities { get; set; }

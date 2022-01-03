@@ -1,27 +1,19 @@
 ﻿{
-    "name": "Shiny.Push",
+    "component": "Push",
+    "service": "Shiny.Push.IPushManager",
+    "startup": "services.UsePush<MyPushDelegate>()",
+    "delegate": "Shiny.Push.IPushDelegate",
     "description": "Native OS Push Providers",
-    "samples": [
-        {
-            "description": "Sample",
-            "urlPath": "Push-Native"
-        }
+    "staticClass": "ShinyPush",
+    "sampleLinks": [
+        "Push-Native"
     ],
-    "services": [
-        {
-            "name": "Shiny.Push.IPushManager",
-            "startup": "UsePush",
-            "bgDelegate": "Shiny.Push.IPushDelegate",
-            "bgDelegateRequired": true,
-            "static": "ShinyPush",
-            "ios": {
-                "usesPush": true
-            },
-            "android": {
-            },
-            "uwp": {
-                "backgroundTasks": [ "pushNotification" ]
-            }
-        }
-    ]
+    "ios": {
+        "usesPush": true
+    },
+    "android": {
+    },
+    "uwp": {
+        "backgroundTasks": [ "pushNotification" ]
+    }
 }

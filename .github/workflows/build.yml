@@ -34,6 +34,6 @@ jobs:
     - name: Build
       run: dotnet build /p:Configuration=Release /p:PackageVersion=${{env.Version}}.${{github.run_number}}
 
-    - name: Publish NuGets
-      if: ${{ github.ref == 'refs/heads/master' }}
-      run: dotnet nuget push **\*.nupkg --source https://api.nuget.org/v3/index.json --api-key ${{ secrets.NUGETAPIKEY }} --skip-duplicate
+    #- name: Publish NuGets
+    #  if: ${{ github.ref == 'refs/heads/master' }}
+    #  run: dotnet nuget push **\*.nupkg --source https://api.nuget.org/v3/index.json --api-key ${{ secrets.NUGETAPIKEY }} --skip-duplicate

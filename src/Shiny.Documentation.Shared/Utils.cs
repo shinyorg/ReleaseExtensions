@@ -1,22 +1,63 @@
 ﻿using System;
 using System.Collections.Generic;
-using System.IO;
+using System.Linq;
 using System.Text;
-using Newtonsoft.Json;
 
 
 namespace Shiny
 {
     public static class Utils
     {
-        //const string PackageDirectory = "./PackageConfigs";
+        public static string ToText(this bool value) => value ? "YES" : "NO";
+        public static bool IsEmpty(this string s) => String.IsNullOrWhiteSpace(s);
 
 
-        //public static StringBuilder AppendXmlCode(this StringBuilder sb, string header) => sb
-        //    .AppendLine("### " + header)
-        //    .AppendLine()
-        //    .AppendLine("```xml")
-        //    .AppendLine("<?xml version=\"1.0\" encoding=\"utf-8\" ?>");
+        public static string ToList(string title, string[] values)
+        {
+            var list = $"## {title}{Environment.NewLine}";
+            foreach(var value in values)
+                list += $"* {value}{Environment.NewLine}";
+
+            return list;
+        }
+
+
+        public static string ToMarkdownTable(string[] headers, List<string[]> data)
+        {
+            var sb = new StringBuilder();
+            foreach (var header in headers)
+                sb.Append("|" + header);
+
+            sb.AppendLine("|");
+            foreach (var header in headers)
+                sb.Append("|" + String.Concat(Enumerable.Repeat("-", header.Length)));
+
+            sb.AppendLine("|");
+            foreach (var dataRow in data)
+            {
+                foreach (var item in dataRow)
+                    sb.Append("|" + item);
+                
+                sb.AppendLine("|");
+            }
+            return sb
+                .AppendLine()
+                .ToString();
+        }
+
+
+        public static StringBuilder AppendXmlCode(this StringBuilder sb) => sb
+            .AppendLine("```xml")
+            .AppendLine("<?xml version=\"1.0\" encoding=\"utf-8\" ?>");
+
+
+        public static StringBuilder AppendLineIf(this StringBuilder sb, string text)
+        {
+            if (!text.IsEmpty())
+                sb.AppendLine(text);
+            
+            return sb;
+        } 
 
 
         public static string ToNugetShield(string packageName, string? label = null)
@@ -31,33 +72,23 @@ namespace Shiny
         }
 
 
-        //static T FileToObj<T>(string path)
-        //{
-        //    var json = File.ReadAllText(path);
-        //    return JsonConvert.DeserializeObject<T>(json)!;
-        //}
+        const string StartupLayout = @"
+```csharp
+using Microsoft.Extensions.DependencyInjection;
+using Shiny;
 
-
-        //public static Package GetPackage(string packageName)
-        //{
-        //    var path = $"{PackageDirectory}/{packageName}.json";
-        //    if (!File.Exists(path))
-        //        throw new ArgumentException($"Package '{packageName}' Not Found");
-
-        //    return FileToObj<Package>(path);
-        //}
-
-
-        //public static List<Package> GetAllPackages()
-        //{
-        //    var list = new List<Package>();
-        //    var files = Directory.GetFiles(PackageDirectory, "*.json");
-        //    foreach (var file in files)
-        //    {
-        //        var obj = FileToObj<Package>(file);
-        //        list.Add(obj);
-        //    }
-        //    return list;
-        //}
+namespace YourNamespace
+{
+    public class YourShinyStartup : ShinyStartup
+    {
+        public override void ConfigureServices(IServiceCollection services, IPlatform platform)
+        {
+            {{BODY}}
+        }
+    }
+}
+```
+";
+        public static string GetStartup(string content) => StartupLayout.Replace("{{BODY}}", content);
     }
 }
