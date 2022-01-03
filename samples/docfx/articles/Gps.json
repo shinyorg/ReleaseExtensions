@@ -1,0 +1,33 @@
+﻿{
+    "nuget": "Shiny.Locations",
+    "description": "GPS, Geofencing, & Motion Activity Recogntion Services",
+    "name": "Shiny.Locations.IGpsManager",
+    "startup": "services.UseGps() or services.UseGps<YourGpsDelegate>();",
+    "delegate": "Shiny.Locations.IGpsDelegate",
+    "static": "ShinyGps",
+    "sampleLinks": [
+        "Locations-Gps"
+    ],
+    "ios": {
+        "infoPlist": [
+            "NSLocationAlwaysUsageDescription",
+            "NSLocationAlwaysAndWhenInUseUsageDescription",
+            "NSLocationWhenInUseUsageDescription"
+        ]
+    },
+    "android": {
+        "manifestUsesPermissions": [
+            "android.permission.ACCESS_COARSE_LOCATION",
+            "android.permission.ACCESS_FINE_LOCATION",
+            "android.permission.ACCESS_BACKGROUND_LOCATION",
+            "android.permission.FOREGROUND_SERVICE"
+        ],
+        "manifestUsesFeatures": [
+            "android.hardware.location.gps",
+            "android.hardware.location.network"
+        ]
+    },
+    "uwp": {
+        "deviceCapabilities": [ "location" ]
+    }
+}

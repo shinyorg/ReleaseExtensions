@@ -1,0 +1,15 @@
+﻿{
+    "component": "Notifications",
+    "nuget": "Shiny.Notifications",
+    "service": "Shiny.Notifications.INotificationManager",
+    "description": "Local Notifications",
+    "staticClass": "ShinyNotifications",
+    "startup": "services.UseNotifications() or services.UseNotification<YourNotificationDelegate>();",
+    "delegate": "Shiny.Notifications.INotificationDelegate",
+    "ios": {},
+    "android": {},
+    "uwp": {},    
+    "sampleLinks": [
+        "Notifications"
+    ]
+}

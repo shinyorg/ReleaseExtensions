@@ -1,0 +1,17 @@
+﻿{
+    "component": "Motion Activity",
+    "description": "Motion Activity Recogntion Services",
+    "nuget": "Shiny.Locations",
+    "service": "Shiny.Locations.IMotionActivityManager",
+    "startup": "services.UseMotionActivity();",
+    "staticClass": "ShinyMotionActivity",
+    "sampleLinks": [
+        "Locations-MotionActivity"
+    ],
+    "ios": {
+        "infoPlist": [ "NSMotionUsageDescription" ]
+    },
+    "android": {
+        "manifestUsesPermissions": [ "android.permission.ACTIVITY_RECOGNITION" ]
+    }
+}

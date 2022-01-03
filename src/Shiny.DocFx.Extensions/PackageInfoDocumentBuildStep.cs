@@ -14,16 +14,13 @@ namespace Shiny.DocFx.Extensions
         public int BuildOrder => 0;
 
 
-        //private readonly TaskFactory _taskFactory = new TaskFactory(new StaTaskScheduler(1));
         public void Build(FileModel model, IHostService host)
         {
             var dict = (Dictionary<string, object>)model.Content;
 
             var content = (string)dict["conceptual"];
             var package = JsonConvert.DeserializeObject<Package>(content);
-            // TODO: build content
-            //content = _taskFactory.StartNew(() => RtfToHtmlConverter.ConvertRtfToHtml(content)).Result;
-            //dict["conceptual"] = content;
+            dict["conceptual"] = Generator.ToMarkdown(package);
         }
 
 

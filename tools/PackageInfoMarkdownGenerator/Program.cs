@@ -13,17 +13,27 @@ foreach (var jsonFile in jsonFiles)
 {
     var file = new FileInfo(jsonFile);
     var content = File.ReadAllText(file.FullName);
-    var package = JsonConvert.DeserializeObject<Package>(content);
 
-    if (package.SaveLocation == null)
-        package.SaveLocation = Path.ChangeExtension(file.FullName, ".md");
+    try
+    { 
+        var package = JsonConvert.DeserializeObject<Package>(content);
 
-    var mdPath = Path.Combine(savePath, package.SaveLocation);
-    if (File.Exists(mdPath))
-        File.Delete(mdPath);
+        if (package.SaveLocation == null)
+            package.SaveLocation = Path.ChangeExtension(file.FullName, ".md");
 
-    Console.WriteLine("Generating markdown file for {0}", file.Name);
-    var md = Generator.ToMarkdown(package);
-    File.WriteAllText(mdPath, md);
-    Console.WriteLine("Generated {0}", mdPath);
+        var mdPath = Path.Combine(savePath, package.SaveLocation);
+        if (File.Exists(mdPath))
+            File.Delete(mdPath);
+
+        Console.WriteLine("Generating markdown file for {0}", file.Name);
+        var md = Generator.ToMarkdown(package);
+        File.WriteAllText(mdPath, md);
+        Console.WriteLine("Generated {0}", mdPath);
+    }
+    catch (Exception ex)
+    {
+        Console.WriteLine("Failed to write markdown file for " + file.FullName);
+    }
 }
+Console.WriteLine("Press <ENTER> to quit");
+Console.ReadLine();

@@ -1,0 +1,32 @@
+﻿{
+    "component": "Jobs",
+    "nuget": "Shiny.Jobs",
+    "description": "Background Periodic Jobs",
+    "service": "Shiny.Jobs.IJobManager",
+    "static": "ShinyJobs",
+    "faqs":[{
+        "question": "How often will my jobs run on Android?",
+        "answer": "If Doze is enabled, the reschedule period is not guaranteed to be an average of 15 mins. It may be much longer."
+    }, {
+        "question": "When should I register my jobs? Should I do everytime I start the app",
+        "answer": "The best is to register your jobs with the Shiny startup"
+    }, {
+        "question": "How long do I have to run a job?",
+        "answer": "On iOS, 30 seconds - not a penny more.  Android will give you several minutes depending on the device, OS version, etc"
+    }],
+    "ios": {
+        "usesPush": true
+    },
+    "android": {
+        "manifestUsesPermissions": [
+            "android.permission.ACCESS_NETWORK_STATE",
+            "android.permission.ACCESS_WIFI_STATE",
+            "android.permission.BATTERY_STATS",
+            "android.permission.RECEIVE_BOOT_COMPLETED",
+            "android.permission.WRITE_EXTERNAL_STORAGE",
+            "android.permission.READ_EXTERNAL_STORAGE",
+            "android.permission.INTERNET"
+        ]
+    },
+    "uwp": {}
+}

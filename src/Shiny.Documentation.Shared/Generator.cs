@@ -23,17 +23,22 @@ namespace Shiny
             // TODO: sponsor image
             AppendGeneral(sb, package);
 
-            sb
-                .AppendLine("## Shiny Startup")
-                .AppendLine(Utils.GetStartup(package.Startup))
-                .AppendLine();
+            if (!package.Startup.IsEmpty())
+            { 
+                sb
+                    .AppendLine("## Shiny Startup")
+                    .AppendLine(Utils.GetStartup(package.Startup))
+                    .AppendLine();
+            }
 
             if (package.Features != null)
             {
-                sb.Append(Utils.ToList(
-                    "Features",
-                    package.Features
-                ));
+                sb
+                    .Append(Utils.ToList(
+                        "Features",
+                        package.Features
+                    ))
+                    .AppendLine();
             }
 
             if (package.SampleLinks != null)
@@ -67,10 +72,7 @@ namespace Shiny
         {
             var data = new List<string[]>();
             if (!package.Nuget.IsEmpty())
-            {
-                var nuget = Utils.ToNugetShield(package.Nuget);
-                data.Add(new[] { "NuGet", nuget });
-            }
+                data.Add(new[] { "NuGet", $"[!NugetShield({package.Nuget})]" });
 
             if (!package.Service.IsEmpty())
             {

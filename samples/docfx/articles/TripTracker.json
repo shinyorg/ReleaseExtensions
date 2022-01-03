@@ -1,0 +1,37 @@
+﻿{
+    "component": "Trip Tracker",
+    "service": "Shiny.TripTracker.ITripTrackerManager",
+    "nuget": "Shiny.TripTracker",
+    "description": "GPS + Motion Activity - Track walks, runs, biking, and drives.  Tracks speed, time taken, total distance, average speed, and the path your user took!",
+    "staticClass": "ShinyTripTracker",
+    "startup": "services.UseTripTracker<MyTripTrackerDelegate>();",
+    "delegate": "Shiny.TripTracker.ITripTrackerDelegate",
+    "sponsorshipRequired": true,
+    "canAutoRegister": true,
+    "features":[
+        "Track your runs, walks, biking, and drives",
+        "Tracks average speed, total distance, time taken, and the path your user took"
+    ],
+    "sampleLinks": [
+        "Sponsors-TripTracker"
+    ],
+    "ios": {
+        "infoPlist": [
+            "NSLocationAlwaysUsageDescription",
+            "NSLocationAlwaysAndWhenInUseUsageDescription",
+            "NSLocationWhenInUseUsageDescription"
+        ]
+    },
+    "android": {
+        "manifestUsesPermissions": [
+            "android.permission.ACCESS_COARSE_LOCATION",
+            "android.permission.ACCESS_FINE_LOCATION",
+            "android.permission.ACCESS_BACKGROUND_LOCATION",
+            "android.permission.FOREGROUND_SERVICE"
+        ],
+        "manifestUsesFeatures": [
+            "android.hardware.location.gps",
+            "android.hardware.location.network"
+        ]
+    },
+}

@@ -1,0 +1,33 @@
+﻿{
+    "nuget": "Shiny.Locations",
+    "description": "Geofencing",
+    "name": "Shiny.Locations.IGeofenceManager",
+    "startup": "services.UseGeofencing<YourGpsDelegate>();",
+    "delegate": "Shiny.Locations.IGeofenceDelegate",
+    "static": "ShinyGeofencing",
+    "sampleLinks": [
+        "Locations-Geofencing"
+    ],
+    "ios": {
+        "infoPlist": [
+            "NSLocationAlwaysUsageDescription",
+            "NSLocationAlwaysAndWhenInUseUsageDescription",
+            "NSLocationWhenInUseUsageDescription"
+        ]
+    },
+    "android": {
+        "manifestUsesPermissions": [
+            "android.permission.ACCESS_COARSE_LOCATION",
+            "android.permission.ACCESS_FINE_LOCATION",
+            "android.permission.ACCESS_BACKGROUND_LOCATION",
+            "android.permission.FOREGROUND_SERVICE"
+        ],
+        "manifestUsesFeatures": [
+            "android.hardware.location.gps",
+            "android.hardware.location.network"
+        ]
+    },
+    "uwp": {
+        "deviceCapabilities": [ "location" ]
+    }
+}

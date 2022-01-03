@@ -1,0 +1,19 @@
+﻿{
+    "component": "HTTP Transfers",
+    "nuget": "Shiny.Net.Http",
+    "description": "Background Uploads & Downloads with metrics",
+    "service": "Shiny.Net.Http.IHttpTransferManager",
+    "startup": "services.UseHttpTransfers<YourHttpTransferDelegate>();",
+    "delegate": "Shiny.Net.Http.IHttpTransferDelegate",
+    "staticClass": "ShinyHttpTransfers",
+    "sampleLinks": [
+        "HttpTransfers"
+    ],
+    "ios": {
+        "UsesBgTransfers": true
+    },
+    "android": {
+
+    },
+    "uwp": {}
+}
