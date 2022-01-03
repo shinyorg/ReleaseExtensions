@@ -53,9 +53,13 @@ namespace YourIosApp
            global::Xamarin.Forms.Forms.Init();
            this.LoadApplication(new Samples.App());
        }
-public override void RegisteredForRemoteNotifications(UIApplication application, NSData deviceToken) => this.ShinyRegisteredForRemoteNotifications(deviceToken);
-public override void FailedToRegisterForRemoteNotifications(UIApplication application, NSError error) => this.ShinyFailedToRegisterForRemoteNotifications(error);
-public override void DidReceiveRemoteNotification(UIApplication application, NSDictionary userInfo, Action<UIBackgroundFetchResult> completionHandler) => this.ShinyDidReceiveRemoteNotification(userInfo, completionHandler);
+
+        public override void RegisteredForRemoteNotifications(UIApplication application, NSData deviceToken) => this.ShinyRegisteredForRemoteNotifications(deviceToken);
+
+        public override void FailedToRegisterForRemoteNotifications(UIApplication application, NSError error) => this.ShinyFailedToRegisterForRemoteNotifications(error);
+
+        public override void DidReceiveRemoteNotification(UIApplication application, NSDictionary userInfo, Action<UIBackgroundFetchResult> completionHandler) => this.ShinyDidReceiveRemoteNotification(userInfo, completionHandler);
+
 	}
 }
 ```
@@ -104,7 +108,8 @@ Target Version: 11
 <Package>
     <Applications>
         <Extensions>
-            <Task Type="pushNotification" />        </Extensions>
+            <Task Type="pushNotification" />
+        </Extensions>
     </Applications>
 </Package>
 ```

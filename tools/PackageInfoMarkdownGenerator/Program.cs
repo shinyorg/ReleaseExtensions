@@ -16,13 +16,13 @@ foreach (var jsonFile in jsonFiles)
     var package = JsonConvert.DeserializeObject<Package>(content);
 
     if (package.SaveLocation == null)
-        package.SaveLocation = file.FullName.Replace(".json", ".md");
+        package.SaveLocation = Path.ChangeExtension(file.FullName, ".md");
 
     var mdPath = Path.Combine(savePath, package.SaveLocation);
     if (File.Exists(mdPath))
         File.Delete(mdPath);
 
-    Console.WriteLine("Generating {0} markdown file");
+    Console.WriteLine("Generating markdown file for {0}", file.Name);
     var md = Generator.ToMarkdown(package);
     File.WriteAllText(mdPath, md);
     Console.WriteLine("Generated {0}", mdPath);

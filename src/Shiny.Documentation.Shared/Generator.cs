@@ -29,7 +29,7 @@ namespace Shiny
                 .AppendLine();
 
             if (package.Features != null)
-            { 
+            {
                 sb.Append(Utils.ToList(
                     "Features",
                     package.Features
@@ -73,7 +73,7 @@ namespace Shiny
             }
 
             if (!package.Service.IsEmpty())
-            { 
+            {
                 data.Add(new [] { "Service", package.Service });
                 data.Add(new [] { "Auto-Register", package.CanAutoRegister.ToText() });
             }
@@ -140,13 +140,13 @@ namespace Shiny
                 sb.AppendLine();
             }
             if (ios.UsesBackgroundTransfers || ios.UsesJobs || ios.UsesPush || ios.InfoPlistValues != null || ios.BackgroundModes != null)
-            { 
+            {
                 sb.AppendLine("# [Info Plist](#iostab/info)").AppendLine();
                 AppendIosInfoPlist(sb, ios);
                 sb.AppendLine();
             }
             if (ios.Entitlements != null || ios.UsesPush)
-            { 
+            {
                 sb.AppendLine("# [Entitlements.plist](#iostab/entitlements)").AppendLine();
                 AppendIosEntitlementsPlist(sb, ios);
                 sb.AppendLine();
@@ -195,9 +195,11 @@ namespace Shiny
                 return;
 
             WritePlatformHeader(sb, "UWP", uwp.Info);
-            //if (uwp.DeviceCapabilities == null && uwp.Capabilities == null && uwp.BackgroundTasks == null)
-            //    return "No Special Configuration Required";
-
+            if (uwp.DeviceCapabilities == null && uwp.Capabilities == null && uwp.BackgroundTasks == null)
+            {
+                sb.AppendLine("No Special Configuration Required");
+                return;
+            }
             sb
                 .AppendXmlCode()
                 .AppendLine("<Package>")
@@ -207,7 +209,7 @@ namespace Shiny
             {
                 sb.AppendLine("        <Extensions>");
                 foreach (var task in uwp.BackgroundTasks)
-                    sb.Append($"            <Task Type=\"{task}\" />");
+                    sb.AppendLine($"            <Task Type=\"{task}\" />");
 
                 sb.AppendLine("        </Extensions>");
             }
@@ -259,21 +261,25 @@ namespace Shiny
                 .AppendLine("           this.ShinyFinishedLaunching(new Samples.SampleStartup());")
                 .AppendLine("           global::Xamarin.Forms.Forms.Init();")
                 .AppendLine("           this.LoadApplication(new Samples.App());")
-                .AppendLine("       }");
+                .AppendLine("       }")
+                .AppendLine();
 
             if (ios.UsesJobs)
-                sb.AppendLine("public override void PerformFetch(UIApplication application, Action<UIBackgroundFetchResult> completionHandler) => this.ShinyPerformFetch(completionHandler);");
+                sb.AppendLine("        public override void PerformFetch(UIApplication application, Action<UIBackgroundFetchResult> completionHandler) => this.ShinyPerformFetch(completionHandler);").AppendLine();
 
             if (ios.UsesPush)
             {
                 sb
-                    .AppendLine("public override void RegisteredForRemoteNotifications(UIApplication application, NSData deviceToken) => this.ShinyRegisteredForRemoteNotifications(deviceToken);")
-                    .AppendLine("public override void FailedToRegisterForRemoteNotifications(UIApplication application, NSError error) => this.ShinyFailedToRegisterForRemoteNotifications(error);")
-                    .AppendLine("public override void DidReceiveRemoteNotification(UIApplication application, NSDictionary userInfo, Action<UIBackgroundFetchResult> completionHandler) => this.ShinyDidReceiveRemoteNotification(userInfo, completionHandler);");
+                    .AppendLine("        public override void RegisteredForRemoteNotifications(UIApplication application, NSData deviceToken) => this.ShinyRegisteredForRemoteNotifications(deviceToken);")
+                    .AppendLine()
+                    .AppendLine("        public override void FailedToRegisterForRemoteNotifications(UIApplication application, NSError error) => this.ShinyFailedToRegisterForRemoteNotifications(error);")
+                    .AppendLine()
+                    .AppendLine("        public override void DidReceiveRemoteNotification(UIApplication application, NSDictionary userInfo, Action<UIBackgroundFetchResult> completionHandler) => this.ShinyDidReceiveRemoteNotification(userInfo, completionHandler);")
+                    .AppendLine();
             }
 
             if (ios.UsesBackgroundTransfers)
-                sb.AppendLine("public override void HandleEventsForBackgroundUrl(UIApplication application, string sessionIdentifier, Action completionHandler) => this.ShinyHandleEventsForBackgroundUrl(sessionIdentifier, completionHandler);");
+                sb.AppendLine("        public override void HandleEventsForBackgroundUrl(UIApplication application, string sessionIdentifier, Action completionHandler) => this.ShinyHandleEventsForBackgroundUrl(sessionIdentifier, completionHandler);").AppendLine();
 
             sb
                 .AppendLine("\t}")
@@ -309,7 +315,7 @@ namespace Shiny
                 {
                     sb
                         .AppendLine($"    <key>{value}</key>")
-                        .AppendLine("    <string>Say something useful here that your users will understand</string>");
+                        .AppendLine("       <string>Say something useful here that your users will understand</string>");
                 }
             }
 
