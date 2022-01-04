@@ -1,4 +1,5 @@
-﻿using Microsoft.DocAsCode.Plugins;
+﻿using Microsoft.DocAsCode.Common;
+using Microsoft.DocAsCode.Plugins;
 using System;
 using System.Collections.Generic;
 using System.Collections.Immutable;
@@ -32,19 +33,21 @@ namespace Shiny.DocFx.Extensions
 
         public FileModel Load(FileAndType file, ImmutableDictionary<string, object> metadata)
         {
-            //var content = new Dictionary<string, object>
-            //{
-            //    ["conceptual"] = File.ReadAllText(Path.Combine(file.BaseDir, file.File)),
-            //    ["type"] = "Conceptual",
-            //    ["path"] = file.File,
-            //};
-            //var localPathFromRoot = PathUtility.MakeRelativePath(EnvironmentContext.BaseDirectory, EnvironmentContext.FileAbstractLayer.GetPhysicalPath(file.File));
+            var content = new Dictionary<string, object>
+            {
+                ["conceptual"] = File.ReadAllText(Path.Combine(file.BaseDir, file.File)),
+                ["type"] = "Conceptual",
+                ["path"] = file.File,
+            };
+            var localPathFromRoot = PathUtility.MakeRelativePath(
+                EnvironmentContext.BaseDirectory, 
+                EnvironmentContext.FileAbstractLayer.GetPhysicalPath(file.File)
+            );
 
-            //return new FileModel(file, content)
-            //{
-            //    LocalPathFromRoot = localPathFromRoot,
-            //};
-            throw new NotImplementedException();
+            return new FileModel(file, content)
+            {
+                LocalPathFromRoot = localPathFromRoot,
+            };
         }
 
 

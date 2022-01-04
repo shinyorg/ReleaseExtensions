@@ -9,6 +9,7 @@ var jsonFiles = Directory.GetFiles(relativePath, "*.json");
 
 Console.WriteLine("Package Files to process: " + jsonFiles.Length);
 
+
 foreach (var jsonFile in jsonFiles)
 {
     var file = new FileInfo(jsonFile);
@@ -32,7 +33,7 @@ foreach (var jsonFile in jsonFiles)
     }
     catch (Exception ex)
     {
-        Console.WriteLine("Failed to write markdown file for " + file.FullName);
+        Console.WriteLine($"Failed to write markdown file for {file.FullName} - {ex}");
     }
 }
 Console.WriteLine("Press <ENTER> to quit");
