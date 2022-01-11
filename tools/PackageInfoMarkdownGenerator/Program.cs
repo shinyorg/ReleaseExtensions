@@ -1,10 +1,8 @@
 ﻿using Newtonsoft.Json;
 using Shiny;
 
-var relativePath = "../../../../../samples/docfx/articles";
-var savePath = relativePath;
+var relativePath = "./transform";
 //var relativePath = args.Length == 0 ? "." : args[0];
-//var savePath = args.Length == 2 ? "." : args[1];
 var jsonFiles = Directory.GetFiles(relativePath, "*.json");
 
 Console.WriteLine("Package Files to process: " + jsonFiles.Length);
@@ -18,11 +16,8 @@ foreach (var jsonFile in jsonFiles)
     try
     { 
         var package = JsonConvert.DeserializeObject<Package>(content);
-
-        if (package.SaveLocation == null)
-            package.SaveLocation = Path.ChangeExtension(file.FullName, ".md");
-
-        var mdPath = Path.Combine(savePath, package.SaveLocation);
+        var mdPath = Path.ChangeExtension(file.FullName, ".md");
+        //var mdPath = Path.Combine(savePath, package.SaveLocation);
         if (File.Exists(mdPath))
             File.Delete(mdPath);
 

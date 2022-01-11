@@ -10,6 +10,7 @@ namespace Shiny
         public static string DefaultSampleLinkUrl { get; set; } = "https://github.com/shinyorg/samples/tree/main/";
         public static string DefaultMinAndroidVersion { get; set; } = "8.0";
         public static string DefaultTargetAndroidVersion { get; set; } = "11 (API 30)";
+        public static string DefaultMinIosVersion { get; set; } = "10";
 
 
         public static string ToMarkdown(Package package)
@@ -135,28 +136,38 @@ namespace Shiny
                 return;
 
             WritePlatformHeader(sb, "iOS", ios.Info);
+            sb.AppendLine("Minimum Version: " + ios.MinVersion ?? DefaultMinIosVersion).AppendLine();
+            var tabs = 0;
+
             if (ios.UsesPush || ios.UsesJobs || ios.UsesBackgroundTransfers)
             {
+                tabs++;
                 sb.AppendLine("# [App Delegate](#iostab/appdelegate)").AppendLine();
                 AppendIosAppDelegate(sb, ios);
                 sb.AppendLine();
             }
             if (ios.UsesBackgroundTransfers || ios.UsesJobs || ios.UsesPush || ios.InfoPlistValues != null || ios.BackgroundModes != null)
             {
+                tabs++;
                 sb.AppendLine("# [Info Plist](#iostab/info)").AppendLine();
                 AppendIosInfoPlist(sb, ios);
                 sb.AppendLine();
             }
             if (ios.Entitlements != null || ios.UsesPush)
             {
+                tabs++;
                 sb.AppendLine("# [Entitlements.plist](#iostab/entitlements)").AppendLine();
                 AppendIosEntitlementsPlist(sb, ios);
                 sb.AppendLine();
             }
-            sb
-                .AppendLine()
-                .AppendLine("***")
-                .AppendLine();
+
+            if (tabs > 0)
+            { 
+                sb
+                    .AppendLine()
+                    .AppendLine("***")
+                    .AppendLine();
+            }
         }
 
 
@@ -317,7 +328,7 @@ namespace Shiny
                 {
                     sb
                         .AppendLine($"    <key>{value}</key>")
-                        .AppendLine("       <string>Say something useful here that your users will understand</string>");
+                        .AppendLine($"    <string>Say something useful here that your users will understand</string>");
                 }
             }
 

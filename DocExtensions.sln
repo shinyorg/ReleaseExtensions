@@ -5,6 +5,7 @@ VisualStudioVersion = 17.1.31911.260
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Solution Items", "Solution Items", "{6796E987-C30A-40EC-A03C-16DFB1C40F0A}"
 	ProjectSection(SolutionItems) = preProject
+		.editorconfig = .editorconfig
 		samples\docfx\docfx.json = samples\docfx\docfx.json
 		samples\docfx\index.md = samples\docfx\index.md
 		README.md = README.md
@@ -27,7 +28,7 @@ Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "samples", "samples", "{3833
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "StatiqTest", "samples\statiq\StatiqTest.csproj", "{91BBDBDC-8DA0-4B61-B583-307ACE6417E6}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "PackageInfoMarkdownGenerator", "tools\PackageInfoMarkdownGenerator\PackageInfoMarkdownGenerator.csproj", "{4CCE22B5-5B07-48E5-8171-63C1E5D94693}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "PackageInfoMarkdownGenerator", "tools\PackageInfoMarkdownGenerator\PackageInfoMarkdownGenerator.csproj", "{4CCE22B5-5B07-48E5-8171-63C1E5D94693}"
 EndProject
 Global
 	GlobalSection(SharedMSBuildProjectFiles) = preSolution

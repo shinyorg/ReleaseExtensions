@@ -1,8 +1,9 @@
 ﻿{
+    "component": "GPS",
     "nuget": "Shiny.Locations",
     "description": "GPS, Geofencing, & Motion Activity Recogntion Services",
     "name": "Shiny.Locations.IGpsManager",
-    "startup": "services.UseGps() or services.UseGps<YourGpsDelegate>();",
+    "startup": "services.UseGps();\\n //OR\\nservices.UseGps<YourGpsDelegate>();",
     "delegate": "Shiny.Locations.IGpsDelegate",
     "static": "ShinyGps",
     "sampleLinks": [

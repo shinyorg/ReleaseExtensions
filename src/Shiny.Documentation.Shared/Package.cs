@@ -8,7 +8,6 @@ namespace Shiny
     {
         public string Component { get; set; }
         public bool SponsorshipRequired { get; set; }
-        public string SaveLocation { get; set; }
         public string? Description { get; set; }
         public string? StaticClass { get; set; }
         public string? Service { get; set; }
